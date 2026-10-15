@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "smart-ticket-triage": {
+      "command": "node",
+      "args": ["src/mcp/server.js"],
+      "env": { "OPENAI_API_KEY": "${OPENAI_API_KEY}" }
+    }
+  }
+}

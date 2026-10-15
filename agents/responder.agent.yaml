@@ -1,0 +1,8 @@
+name: responder
+description: Drafts the customer reply in their language, citing knowledge-base articles, plus an internal note
+framework: langgraph
+model: { provider: openai, name: gpt-4o, temperature: 0 }
+entrypoint: src/agents/responder.js#ResponderAgent
+prompt: src/prompts.js#RESPONDER_PROMPT
+tools: [search_knowledge_base, get_response_template, check_refund_eligibility]
+output: submit_response

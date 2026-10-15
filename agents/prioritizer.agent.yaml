@@ -1,0 +1,8 @@
+name: prioritizer
+description: Sets P1-P4 priority and the SLA deadline from customer tier, incidents and ticket spikes
+framework: langgraph
+model: { provider: openai, name: gpt-4o-mini, temperature: 0 }
+entrypoint: src/agents/prioritizer.js#PrioritizerAgent
+prompt: src/prompts.js#PRIORITIZER_PROMPT
+tools: [lookup_customer, get_sla_policy, check_service_status, find_similar_tickets]
+output: submit_priority

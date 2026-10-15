@@ -1,0 +1,20 @@
+# Workflow manifest (signal: manifest)
+name: smart-ticket-triage
+description: Four-agent LangGraph.js workflow that classifies, prioritises, routes and answers support tickets
+framework: langgraph
+language: javascript
+entrypoint: src/graph.js#buildTriageGraph
+graph:
+  - START -> classifier
+  - classifier -> prioritizer   # skipped for confident spam
+  - prioritizer -> router
+  - router -> responder
+  - responder -> finalize -> END
+agents:
+  - ./classifier.agent.yaml
+  - ./prioritizer.agent.yaml
+  - ./router.agent.yaml
+  - ./responder.agent.yaml
+mcp:
+  config: ../mcp.json
+  server: smart-ticket-triage

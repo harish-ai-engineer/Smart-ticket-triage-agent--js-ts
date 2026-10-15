@@ -1,0 +1,7 @@
+{
+  "id": "T-9010",
+  "subject": "URGENT: production checkout down, API returns 503",
+  "body": "Since 09:15 UTC every call to /v2/orders returns 503 Service Unavailable. Our checkout is completely down and we are losing sales every minute. Request id req_8f2a. Please escalate now!",
+  "customerEmail": "ops@bigretail.com",
+  "channel": "email"
+}

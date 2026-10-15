@@ -1,0 +1,8 @@
+name: router
+description: Assigns the ticket to a support team, on-call person and escalation list
+framework: langgraph
+model: { provider: openai, name: gpt-4o-mini, temperature: 0 }
+entrypoint: src/agents/router.js#RouterAgent
+prompt: src/prompts.js#ROUTER_PROMPT
+tools: [list_teams, get_team_workload, get_escalation_policy]
+output: submit_routing

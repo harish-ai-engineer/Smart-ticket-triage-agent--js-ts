@@ -1,0 +1,8 @@
+name: classifier
+description: Reads a ticket and assigns category, product, language, sentiment and spam verdict
+framework: langgraph
+model: { provider: openai, name: gpt-4o-mini, temperature: 0 }
+entrypoint: src/agents/classifier.js#ClassifierAgent
+prompt: src/prompts.js#CLASSIFIER_PROMPT
+tools: [detect_language, extract_entities, check_spam_signals]
+output: submit_classification
